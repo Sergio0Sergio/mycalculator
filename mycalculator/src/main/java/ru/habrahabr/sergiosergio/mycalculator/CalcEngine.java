@@ -101,6 +101,29 @@ public class CalcEngine {
        return display.toString();
    }
    
+   /**
+    * Метод принимает символ '.' и возвращает содержимое индикатора
+    * калькулятора в формате String. Является частью API.
+    * @param c знак '.'
+    * @return 
+    */
+   public String dotInput(char c){
+       
+      if(displayFlag == false){
+          
+          display.delete(0, display.length());
+          display.append('0');
+          displayFlag = true;
+      } 
+      
+      if (!display.toString().contains(".")){
+          
+          display.append(c);
+      }
+      return display.toString();
+          
+   }
+   
    private double calculateResult(char c){
        
        switch (c){
