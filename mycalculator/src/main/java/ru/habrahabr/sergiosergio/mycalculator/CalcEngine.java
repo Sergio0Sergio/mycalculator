@@ -83,12 +83,11 @@ public class CalcEngine {
     }
    
    /**
-    * Метод принимает знак равно и возвращает содержимое экрана
+    * Метод производит вычисления над операндами и возвращает содержимое экрана
     * в формате String. Является элементом API
-    * @param c знак '='
     * @return 
     */
-   public String equalInput(char c){
+   public String equalInput(){
        
        if(displayFlag == true && operandAFlag == true){
            
@@ -102,12 +101,11 @@ public class CalcEngine {
    }
    
    /**
-    * Метод принимает символ '.' и возвращает содержимое индикатора
+    * Метод добавляет дробную точку и возвращает содержимое индикатора
     * калькулятора в формате String. Является частью API.
-    * @param c знак '.'
     * @return 
     */
-   public String dotInput(char c){
+   public String dotInput(){
        
       if(displayFlag == false){
           
@@ -118,7 +116,7 @@ public class CalcEngine {
       
       if (!display.toString().contains(".")){
           
-          display.append(c);
+          display.append('.');
       }
       return display.toString();
           
@@ -128,10 +126,9 @@ public class CalcEngine {
     * Метод получает символ 'C' и очищает экран, операторы и операнды,
     * сбрасывает все флаги, возвращает содержимое экрана калькулятора.
     * Является частью API.
-    * @param c символ 'C'.
     * @return 
     */
-   public String clearInput(char c){
+   public String clearInput(){
        
        display.delete(0, display.length());
        display.append('0');
@@ -139,6 +136,25 @@ public class CalcEngine {
        result = 0;
        displayFlag = false;
        operandAFlag = false;
+       return display.toString();
+   }
+   
+   /**
+    * Метод делает отрицательные числа положительными и положительные
+    * отрицательными
+    * @param c
+    * @return 
+    */
+   public String reverseInput(){
+       
+       if(display.charAt(0) == '-'){
+           
+           display.deleteCharAt(0);
+       }
+       else{
+           
+           display.setCharAt(0, '-');
+       }
        return display.toString();
    }
    
