@@ -80,8 +80,25 @@ public class CalcEngine {
            displayFlag = false;
        }
        return display.toString();
-    
+    }
+   
+   /**
+    * Метод принимает знак равно и возвращает содержимое экрана
+    * в формате String. Является элементом API
+    * @param c знак '='
+    * @return 
+    */
+   public String equalInput(char c){
        
+       if(displayFlag == true && operandAFlag == true){
+           
+           result = calculateResult(operator);
+           operandA = result;
+           display.delete(0, display.length());
+           display.append(String.valueOf(result));
+           displayFlag = false;
+       }
+       return display.toString();
    }
    
    private double calculateResult(char c){
