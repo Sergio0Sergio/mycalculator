@@ -124,6 +124,24 @@ public class CalcEngine {
           
    }
    
+   /**
+    * Метод получает символ 'C' и очищает экран, операторы и операнды,
+    * сбрасывает все флаги, возвращает содержимое экрана калькулятора.
+    * Является частью API.
+    * @param c символ 'C'.
+    * @return 
+    */
+   public String clearInput(char c){
+       
+       display.delete(0, display.length());
+       display.append('0');
+       operandA = 0;
+       result = 0;
+       displayFlag = false;
+       operandAFlag = false;
+       return display.toString();
+   }
+   
    private double calculateResult(char c){
        
        switch (c){
