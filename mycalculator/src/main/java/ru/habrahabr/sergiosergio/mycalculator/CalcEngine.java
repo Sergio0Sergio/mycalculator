@@ -142,7 +142,6 @@ public class CalcEngine {
    /**
     * Метод делает отрицательные числа положительными и положительные
     * отрицательными
-    * @param c
     * @return 
     */
    public String reverseInput(){
