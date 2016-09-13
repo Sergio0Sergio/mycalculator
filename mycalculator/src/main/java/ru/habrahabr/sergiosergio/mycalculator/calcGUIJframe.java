@@ -358,7 +358,7 @@ public class calcGUIJframe extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        // TODO add your handling code here:
+        calcDisplay.setText(engine.equalInput());
     }//GEN-LAST:event_jButton18ActionPerformed
 
     /**
