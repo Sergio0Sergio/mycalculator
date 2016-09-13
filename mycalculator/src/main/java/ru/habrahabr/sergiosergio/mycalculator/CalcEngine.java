@@ -153,7 +153,7 @@ public class CalcEngine {
        }
        else{
            
-           display.setCharAt(0, '-');
+           display.insert(0, '-');
        }
        return display.toString();
    }
