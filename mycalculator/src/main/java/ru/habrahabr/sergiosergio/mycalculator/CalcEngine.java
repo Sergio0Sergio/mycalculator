@@ -43,6 +43,7 @@ public class CalcEngine {
        }
        
        display.append(c);
+       displayFlag = true;
        return display.toString();
    }
    
