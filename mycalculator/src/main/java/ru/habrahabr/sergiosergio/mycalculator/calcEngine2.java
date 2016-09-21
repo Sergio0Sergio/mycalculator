@@ -16,15 +16,15 @@ public class calcEngine2 {
 								
 				checkZero();
 				display.append(c);
-				lastSymbol = 'c';
+				lastSymbol = c;
 				return  display.toString();
 								
 			case 1:
 				
 				checkLastSymbol();
 				checkZero();
-				display.append('c');
-				lastSymbol = 'c';
+				display.append(c);
+				lastSymbol = c;
 				return  display.toString();
 				
 			case 2:
@@ -37,9 +37,24 @@ public class calcEngine2 {
 				
 		}
 		return "error";
+				
+	}
+	
+	public String operatorInput(char c){
 		
+		switch (state){
 		
-		
+			case 0:
+				
+				operator = c;
+				operandA = Double.parseDouble(display.toString());
+				lastSymbol = c;
+				state = 1;
+				
+			case 1:
+				
+				
+		}
 		
 	}
 	
@@ -48,6 +63,7 @@ public class calcEngine2 {
 		if(display.toString().equals("0")){
 			
 			display.deleteCharAt(0);
+			
 		}
 		
 	}
