@@ -29,7 +29,7 @@ public class calcEngine2 {
 				
 			case 2:
 				
-				state = 2;
+				state = 1;
 				display.delete(0, display.length());
 				display.append(c);
 				return  display.toString();
