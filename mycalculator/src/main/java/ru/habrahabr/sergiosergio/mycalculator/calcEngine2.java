@@ -5,7 +5,7 @@ public class calcEngine2 {
 	private char lastSymbol = '0';
 	private char operator;
 	private double operandA;
-	private int state = 1;
+	private int state = 0;
 	private StringBuilder display = new StringBuilder("0");
 	
 	public String numberInput (char c){
@@ -36,7 +36,7 @@ public class calcEngine2 {
 				
 				
 		}
-		return null;
+		return "error";
 		
 		
 		
