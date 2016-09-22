@@ -91,10 +91,11 @@ public class CalcEngine3 {
 							
 				
 		}
+		return "error";
 		
 	}
 	
-	public String dotInput(char c){
+	public String dotInput(){
 		
 		switch (state){
 		
@@ -120,6 +121,20 @@ public class CalcEngine3 {
 				display.append("0.");
 				state = 1;
 				return display.toString();
+		}
+		return "error";
+	}
+	
+	public String equalInput(){
+		
+		switch (state){
+		
+			case 0:
+				
+				return display.toString();
+				
+			case 1:
+				
 		}
 	}
 	
