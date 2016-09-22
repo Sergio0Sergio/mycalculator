@@ -23,6 +23,7 @@ package ru.habrahabr.sergiosergio.mycalculator;
  */
 public class CalcEngine3 {
     
+	private double result;
     private char lastSymbol = '0';
 	private char operator;
 	private double operandA;
@@ -71,9 +72,23 @@ public class CalcEngine3 {
 				operandA = Double.parseDouble(display.toString());
 				lastSymbol = c;
 				state = 1;
+				return display.toString();
 				
 			case 1:
 				
+				result = calculateResult(operator);
+				operandA = result;
+				display.delete(0, display.length());
+				display.append(String.valueOf(result));
+				operator = c;
+				state = 2;
+				return display.toString();
+				
+			case 2:
+				
+				operator = c;
+				return display.toString();
+							
 				
 		}
 		
@@ -97,5 +112,24 @@ public class CalcEngine3 {
 			display.append("0");
 		}
 	}
+	
+	 private double calculateResult(char c){
+	       
+	       switch (c){
+	           case '+': 
+	               return operandA + Double.parseDouble(display.toString());
+	           case '-': 
+	               return operandA - Double.parseDouble(display.toString());
+	           case '*': 
+	               return operandA * Double.parseDouble(display.toString());
+	           case '/': 
+	               if (operandA == 0){
+	                   return 0;
+	               }
+	                   
+	               else {return operandA / Double.parseDouble(display.toString());}
+	            
+	           default: return 0;
+	       }
     
 }
