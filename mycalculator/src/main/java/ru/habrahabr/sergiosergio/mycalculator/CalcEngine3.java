@@ -58,7 +58,7 @@ public class CalcEngine3 {
 				
 				
 		}
-		return "error";
+		
 				
 	}
 	
@@ -92,6 +92,35 @@ public class CalcEngine3 {
 				
 		}
 		
+	}
+	
+	public String dotInput(char c){
+		
+		switch (state){
+		
+			case 0:
+				
+				if (!display.toString().contains(".")){
+			          
+			          display.append('.');
+			      }
+			      return display.toString();
+			      
+			case 1:
+				
+				if (!display.toString().contains(".")){
+			          
+			          display.append('.');
+			      }
+			      return display.toString();
+			      			      
+			case 2:
+				
+				display.delete(0, display.length());
+				display.append("0.");
+				state = 1;
+				return display.toString();
+		}
 	}
 	
 	private void checkZero(){
@@ -131,5 +160,8 @@ public class CalcEngine3 {
 	            
 	           default: return 0;
 	       }
+	 }
+	 
+	 
     
 }
