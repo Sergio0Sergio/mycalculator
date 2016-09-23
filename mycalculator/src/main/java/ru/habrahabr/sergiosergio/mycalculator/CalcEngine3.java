@@ -38,28 +38,30 @@ public class CalcEngine3 {
 								
 				checkZero();
 				display.append(c);
-				lastSymbol = c;
 				return  display.toString();
 								
 			case 1:
 				
-				checkLastSymbol();
+				
 				checkZero();
 				display.append(c);
-				lastSymbol = c;
 				return  display.toString();
 				
 			case 2:
 				
 				state = 1;
-				display.delete(0, display.length());
 				display.append(c);
 				return  display.toString();
 				
+                        case 3:
+                            
+                                state = 0;
+				display.append(c);
+				return  display.toString();
 				
 		}
 		
-				
+		return "error";		
 	}
 	
 	public String operatorInput(char c){
@@ -70,24 +72,33 @@ public class CalcEngine3 {
 				
 				operator = c;
 				operandA = Double.parseDouble(display.toString());
-				lastSymbol = c;
 				state = 1;
-				return display.toString();
+                                display.delete(0, display.length());
+                                display.append("0");
+				return String.valueOf(operandA);
 				
 			case 1:
 				
 				result = calculateResult(operator);
 				operandA = result;
 				display.delete(0, display.length());
-				display.append(String.valueOf(result));
+                                display.append("0");
 				operator = c;
 				state = 2;
-				return display.toString();
+				return String.valueOf(operandA);
 				
 			case 2:
 				
 				operator = c;
-				return display.toString();
+				return String.valueOf(operandA);
+                                
+                        case 3:
+                            
+                                operator = c;
+				operandA = Double.parseDouble(display.toString());
+				state = 1;
+                                display.delete(0, display.length());
+				return String.valueOf(operandA);
 							
 				
 		}
@@ -117,10 +128,11 @@ public class CalcEngine3 {
 			      			      
 			case 2:
 				
-				display.delete(0, display.length());
-				display.append("0.");
-				state = 1;
-				return display.toString();
+				return String.valueOf(operandA);
+                                
+                        case 3:
+                            
+                                return String.valueOf(operandA);
 		}
 		return "error";
 	}
@@ -131,12 +143,50 @@ public class CalcEngine3 {
 		
 			case 0:
 				
-				return display.toString();
+                            return display.toString();
 				
 			case 1:
-				
-		}
+                            
+                                result = calculateResult(operator);
+				operandA = result;
+				display.delete(0, display.length());
+                                display.append("0");
+				state = 3;
+				return String.valueOf(operandA);
+                                
+                        case 2:
+                                
+                                return String.valueOf(operandA);
+                                
+                        case 3:
+                            
+                                return String.valueOf(operandA);
+                }
+                return "error";
 	}
+        
+        public String reverseInput(){
+            
+                    if(display.charAt(0) == '-'){
+           
+                        display.deleteCharAt(0);
+                    }
+                    else{
+           
+                         display.insert(0, '-');
+                    }
+                    return display.toString();
+        }
+        
+        public String clearInput(){
+       
+            display.delete(0, display.length());
+            display.append('0');
+            operandA = 0;
+            result = 0;
+            state = 0;
+            return display.toString();
+        }
 	
 	private void checkZero(){
 		
@@ -148,14 +198,8 @@ public class CalcEngine3 {
 		
 	}
 	
-	private void checkLastSymbol(){
-		
-		if (lastSymbol == '+' || lastSymbol == '-' || lastSymbol == '*' || lastSymbol == '/' || lastSymbol == '='){
-			
-			display.delete(0, display.length());
-			display.append("0");
-		}
-	}
+	
+	
 	
 	 private double calculateResult(char c){
 	       

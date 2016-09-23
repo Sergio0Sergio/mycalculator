@@ -419,5 +419,5 @@ public class calcGUIJframe extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
-    CalcEngine engine = new CalcEngine();
+    CalcEngine3 engine = new CalcEngine3();
 }
