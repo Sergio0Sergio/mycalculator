@@ -190,9 +190,9 @@ public class CalcEngine3 {
 	
 	private void checkZero(){
 		
-		if(display.toString().equals("0")){
+		if(display.toString().equals("0") || display.toString().equals("0.0") || display.toString().equals("-0") || display.toString().equals("-0.0")){
 			
-			display.deleteCharAt(0);
+			display.delete(0, display.length());
 			
 		}
 		
