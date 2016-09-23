@@ -49,12 +49,14 @@ public class CalcEngine3 {
 				
 			case 2:
 				
+                                checkZero();
 				state = 1;
 				display.append(c);
 				return  display.toString();
 				
                         case 3:
-                            
+                                
+                                checkZero();
                                 state = 0;
 				display.append(c);
 				return  display.toString();
